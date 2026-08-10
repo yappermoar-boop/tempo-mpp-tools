@@ -1,0 +1,44 @@
+{
+  "name": "tempo-mpp-tools",
+  "version": "1.0.0",
+  "description": "Comprehensive Machine Payments Protocol (MPP) toolkit, testnet automation bot, SDK, and interactive testing suite for the Tempo blockchain (Moderato Testnet).",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "type": "module",
+  "bin": {
+    "tempo-mpp": "./bin/tempo-mpp.js"
+  },
+  "scripts": {
+    "start": "node src/server/studio.js",
+    "cli": "node bin/tempo-mpp.js",
+    "test": "node tests/run-all.js",
+    "test:conformance": "node tests/conformance.test.js",
+    "test:mpp": "node tests/mpp.test.js",
+    "test:rpc": "node tests/rpc.test.js",
+    "bot:faucet": "node bin/tempo-mpp.js faucet",
+    "bot:activity": "node bin/tempo-mpp.js tx-spammer",
+    "studio": "node src/server/studio.js"
+  },
+  "keywords": [
+    "tempo",
+    "mpp",
+    "machine-payments-protocol",
+    "http-402",
+    "moderato-testnet",
+    "airdrop",
+    "faucet-bot",
+    "stripe",
+    "tip-20",
+    "pathusd",
+    "ai-agent-payments"
+  ],
+  "author": "Antigravity Dev",
+  "license": "MIT",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "ethers": "^6.13.5",
+    "express": "^4.21.2"
+  },
+  "devDependencies": {}
+}

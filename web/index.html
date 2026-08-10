@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tempo MPP Studio & Testnet Toolkit</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Header / Navigation -->
+  <header class="app-header">
+    <div class="logo-area">
+      <div class="logo-badge">
+        <span class="logo-glow"></span>
+        <svg class="logo-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+          <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+        </svg>
+      </div>
+      <div>
+        <h1 class="brand-title">TEMPO <span class="badge-mpp">MPP TOOLS</span></h1>
+        <p class="brand-subtitle">Machine Payments Protocol • Moderato Testnet Suite</p>
+      </div>
+    </div>
+
+    <!-- Network Health Pill -->
+    <div class="network-badge" id="network-status-pill">
+      <span class="pulse-dot"></span>
+      <span id="network-name">Connecting to Tempo...</span>
+      <span class="chain-id-tag" id="network-block">#...</span>
+    </div>
+  </header>
+
+  <!-- Navigation Tabs -->
+  <nav class="nav-tabs">
+    <button class="nav-tab active" data-tab="overview">
+      <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path></svg>
+      Overview & Network
+    </button>
+    <button class="nav-tab" data-tab="wallet-faucet">
+      <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"></rect><line x1="6" y1="12" x2="6.01" y2="12"></line><line x1="10" y1="12" x2="18" y2="12"></line></svg>
+      Wallets & Faucet
+    </button>
+    <button class="nav-tab" data-tab="airdrop-bot">
+      <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="4" width="16" height="16" rx="2"/><circle cx="9" cy="9" r="2"/><circle cx="15" cy="9" r="2"/><path d="M8 15h8"/></svg>
+      Airdrop Activity Bot
+    </button>
+    <button class="nav-tab" data-tab="mpp-simulator">
+      <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+      HTTP 402 Simulator
+    </button>
+    <button class="nav-tab" data-tab="conformance">
+      <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+      Conformance Suite
+    </button>
+  </nav>
+
+  <!-- Main Container -->
+  <main class="main-content">
+
+    <!-- Tab 1: Overview -->
+    <section id="tab-overview" class="tab-pane active">
+      <div class="hero-card">
+        <div class="hero-content">
+          <div class="pill-highlight">⚡ Stripe & Tempo Machine Payments Protocol</div>
+          <h2>Autonomous AI Agent Payments & Testnet Infrastructure</h2>
+          <p>
+            Standardizing <code>HTTP 402 Payment Required</code> for programmatic, micropayment-driven API consumption on the Tempo Layer-1 stablecoin blockchain.
+          </p>
+          <div class="hero-actions">
+            <button class="btn btn-primary" onclick="switchTab('wallet-faucet')">Claim Testnet Faucet</button>
+            <button class="btn btn-secondary" onclick="switchTab('mpp-simulator')">Test MPP 402 Flow</button>
+            <button class="btn btn-outline" onclick="switchTab('airdrop-bot')">Run Activity Bot</button>
+          </div>
+        </div>
+        <div class="hero-stats-grid">
+          <div class="stat-box">
+            <span class="stat-label">Network</span>
+            <span class="stat-value" id="stat-network">Moderato Testnet</span>
+          </div>
+          <div class="stat-box">
+            <span class="stat-label">Chain ID</span>
+            <span class="stat-value" id="stat-chain">42431 (0xa5bf)</span>
+          </div>
+          <div class="stat-box">
+            <span class="stat-label">Block Number</span>
+            <span class="stat-value highlight" id="stat-block">Loading...</span>
+          </div>
+          <div class="stat-box">
+            <span class="stat-label">Stablecoin Standard</span>
+            <span class="stat-value">TIP-20 (pathUSD)</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-header">
+            <h3>📌 TIP-20 Enshrined Stablecoins</h3>
+            <span class="badge">Moderato Core</span>
+          </div>
+          <div class="token-list">
+            <div class="token-item">
+              <div class="token-icon">P</div>
+              <div class="token-info">
+                <strong>pathUSD</strong>
+                <span class="mono">0x20c0000000000000000000000000000000000000</span>
+              </div>
+              <a href="https://explore.testnet.tempo.xyz/token/0x20c0000000000000000000000000000000000000" target="_blank" class="link-btn">Explorer ↗</a>
+            </div>
+            <div class="token-item">
+              <div class="token-icon">A</div>
+              <div class="token-info">
+                <strong>AlphaUSD</strong>
+                <span class="mono">0x20c0000000000000000000000000000000000001</span>
+              </div>
+              <a href="https://explore.testnet.tempo.xyz/token/0x20c0000000000000000000000000000000000001" target="_blank" class="link-btn">Explorer ↗</a>
+            </div>
+            <div class="token-item">
+              <div class="token-icon">B</div>
+              <div class="token-info">
+                <strong>BetaUSD</strong>
+                <span class="mono">0x20c0000000000000000000000000000000000002</span>
+              </div>
+              <a href="https://explore.testnet.tempo.xyz/token/0x20c0000000000000000000000000000000000002" target="_blank" class="link-btn">Explorer ↗</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <h3>🔗 Quick RPC & Cast Commands</h3>
+            <span class="badge">Developers</span>
+          </div>
+          <div class="code-box">
+            <span class="code-title">1. Claim Faucet via Cast / Terminal:</span>
+            <code>cast rpc tempo_fundAddress &lt;YOUR_ADDRESS&gt; --rpc-url https://rpc.moderato.tempo.xyz</code>
+          </div>
+          <div class="code-box">
+            <span class="code-title">2. Direct cURL Faucet Call:</span>
+            <code>curl -X POST https://rpc.moderato.tempo.xyz -H "Content-Type: application/json" -d '{"jsonrpc":"2.0","method":"tempo_fundAddress","params":["0x..."],"id":1}'</code>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tab 2: Wallets & Faucet -->
+    <section id="tab-wallet-faucet" class="tab-pane">
+      <div class="card">
+        <div class="card-header">
+          <div>
+            <h3>👛 Tempo Wallet Manager & Testnet Faucet</h3>
+            <p class="text-muted">Create EVM wallets and request test stablecoins via <code>tempo_fundAddress</code>.</p>
+          </div>
+          <div class="actions">
+            <button class="btn btn-primary" id="btn-create-wallet">+ Generate New Wallet</button>
+          </div>
+        </div>
+
+        <!-- Wallets Table / List -->
+        <div class="wallets-container" id="wallets-list">
+          <div class="empty-state">Loading wallets...</div>
+        </div>
+      </div>
+
+      <!-- Quick Transfer Card -->
+      <div class="card mt-4">
+        <div class="card-header">
+          <h3>💸 Quick TIP-20 Transfer Tester</h3>
+          <span class="badge">Live Testnet TX</span>
+        </div>
+        <form id="transfer-form" class="form-grid">
+          <div class="form-group">
+            <label>Sender Wallet</label>
+            <select id="transfer-sender" class="form-input"></select>
+          </div>
+          <div class="form-group">
+            <label>Recipient 0x Address</label>
+            <input type="text" id="transfer-recipient" class="form-input" placeholder="0x..." required />
+          </div>
+          <div class="form-group">
+            <label>Amount (pathUSD)</label>
+            <input type="number" id="transfer-amount" class="form-input" value="1.00" step="0.01" min="0.01" required />
+          </div>
+          <div class="form-group flex-end">
+            <button type="submit" class="btn btn-success" id="btn-send-tx">Send Transaction ↗</button>
+          </div>
+        </form>
+        <div id="transfer-result" class="mt-3"></div>
+      </div>
+    </section>
+
+    <!-- Tab 3: Airdrop Activity Bot -->
+    <section id="tab-airdrop-bot" class="tab-pane">
+      <div class="card">
+        <div class="card-header">
+          <div>
+            <h3>🤖 Tempo Testnet Airdrop Activity Automation Bot</h3>
+            <p class="text-muted">Automates on-chain transactions, faucet requests, and inter-wallet payments to maximize testnet interaction history.</p>
+          </div>
+          <button class="btn btn-gradient" id="btn-start-bot">
+            <span class="bot-icon">⚡</span> Run Automated Activity Cycle
+          </button>
+        </div>
+
+        <div class="bot-dashboard-grid">
+          <div class="bot-stat-card">
+            <span class="label">Cycle Strategy</span>
+            <span class="val">Faucet Claim → TIP-20 Transfers → MPP Verify</span>
+          </div>
+          <div class="bot-stat-card">
+            <span class="label">Network Target</span>
+            <span class="val">Tempo Moderato (Chain 42431)</span>
+          </div>
+          <div class="bot-stat-card">
+            <span class="label">Bot Status</span>
+            <span class="val status-idle" id="bot-status-indicator">Idle</span>
+          </div>
+        </div>
+
+        <div class="terminal-wrapper">
+          <div class="terminal-header">
+            <div class="terminal-dots">
+              <span class="dot red"></span>
+              <span class="dot yellow"></span>
+              <span class="dot green"></span>
+            </div>
+            <span class="terminal-title">tempo-bot-daemon.log</span>
+            <button class="btn-clear-logs" id="btn-clear-logs">Clear</button>
+          </div>
+          <div class="terminal-body" id="bot-terminal">
+            <div class="log-line info">[System] Tempo Activity Bot daemon initialized. Ready to execute on-chain testnet cycles.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tab 4: MPP 402 Simulator -->
+    <section id="tab-mpp-simulator" class="tab-pane">
+      <div class="card">
+        <div class="card-header">
+          <div>
+            <h3>⚡ MPP (HTTP 402) Interactive Flow Simulator</h3>
+            <p class="text-muted">Experience how autonomous AI agents discover, sign, and pay for HTTP resources in real-time.</p>
+          </div>
+          <button class="btn btn-primary" id="btn-run-simulation">🚀 Run AI Agent Simulation</button>
+        </div>
+
+        <!-- MPP Diagram -->
+        <div class="mpp-flow-diagram">
+          <div class="flow-step" id="step-1">
+            <div class="step-number">1</div>
+            <div class="step-content">
+              <strong>1. Initial Request</strong>
+              <p>Agent requests protected endpoint without credentials.</p>
+              <span class="method-tag">GET /api/mpp/protected-ai-data</span>
+            </div>
+          </div>
+          <div class="flow-arrow">➔</div>
+          <div class="flow-step" id="step-2">
+            <div class="step-number">2</div>
+            <div class="step-content">
+              <strong>2. HTTP 402 Challenge</strong>
+              <p>Server challenges with WWW-Authenticate: Payment amount=0.05 pathUSD.</p>
+              <span class="badge red">402 Payment Required</span>
+            </div>
+          </div>
+          <div class="flow-arrow">➔</div>
+          <div class="flow-step" id="step-3">
+            <div class="step-number">3</div>
+            <div class="step-content">
+              <strong>3. Agent Signs Credential</strong>
+              <p>Tempo EVM wallet cryptographic authorization.</p>
+              <span class="badge purple">Authorization: Payment</span>
+            </div>
+          </div>
+          <div class="flow-arrow">➔</div>
+          <div class="flow-step" id="step-4">
+            <div class="step-number">4</div>
+            <div class="step-content">
+              <strong>4. Unlocked & Receipt</strong>
+              <p>Server settles & returns data with Payment-Receipt header.</p>
+              <span class="badge green">200 OK + Receipt</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Simulation Output Inspector -->
+        <div class="json-inspector">
+          <div class="inspector-header">
+            <span>Simulation Real-Time Execution Inspector</span>
+            <span id="sim-status-badge" class="badge">Awaiting Trigger</span>
+          </div>
+          <pre id="sim-output">Click "Run AI Agent Simulation" above to execute a real Machine Payments Protocol exchange.</pre>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tab 5: Conformance Suite -->
+    <section id="tab-conformance" class="tab-pane">
+      <div class="card">
+        <div class="card-header">
+          <div>
+            <h3>🧪 MPP Protocol Conformance Test Suite</h3>
+            <p class="text-muted">Automated protocol compliance validation testing challenge integrity, double-spend prevention, and testnet connectivity.</p>
+          </div>
+          <button class="btn btn-primary" id="btn-run-conformance">Run Full Test Suite</button>
+        </div>
+
+        <div id="conformance-summary" class="conformance-metrics" style="display: none;">
+          <div class="metric-card passed">
+            <span class="label">Passed</span>
+            <span class="count" id="conf-passed">0</span>
+          </div>
+          <div class="metric-card failed">
+            <span class="label">Failed</span>
+            <span class="count" id="conf-failed">0</span>
+          </div>
+          <div class="metric-card total">
+            <span class="label">Total Tests</span>
+            <span class="count" id="conf-total">0</span>
+          </div>
+        </div>
+
+        <div class="test-results-list" id="conformance-results">
+          <div class="empty-state">Click "Run Full Test Suite" to execute protocol conformance checks.</div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="app-footer">
+    <p>Tempo MPP Tools Suite • Powered by Tempo Blockchain & Machine Payments Protocol Standard</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
