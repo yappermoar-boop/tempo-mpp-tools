@@ -1,6 +1,6 @@
 # ⚡ Tempo MPP Tools & Testnet Studio
 
-[![CI](https://github.com/tempoxyz/mpp-tools/actions/workflows/ci.yml/badge.svg)](https://github.com/)
+[![CI](https://github.com/yappermoar-boop/tempo-mpp-tools/actions/workflows/ci.yml/badge.svg)](https://github.com/yappermoar-boop/tempo-mpp-tools)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 [![Network: Tempo Moderato](https://img.shields.io/badge/Network-Tempo%20Moderato%20(42431)-6366f1.svg)](https://explore.testnet.tempo.xyz)
 [![Standard: HTTP 402 MPP](https://img.shields.io/badge/Standard-HTTP%20402%20MPP-10b981.svg)](https://mpp.dev)
@@ -46,7 +46,7 @@ A comprehensive toolkit, testnet automation bot, SDK, and interactive testing su
 
 ### 1. Install Dependencies
 ```bash
-git clone https://github.com/<your-username>/tempo-mpp-tools.git
+git clone https://github.com/yappermoar-boop/tempo-mpp-tools.git
 cd tempo-mpp-tools
 npm install
 ```
@@ -179,7 +179,7 @@ git init
 git add .
 git commit -m "feat: initial commit of Tempo MPP Tools and Testnet Suite"
 git branch -M main
-git remote add origin https://github.com/<YOUR_GITHUB_USERNAME>/tempo-mpp-tools.git
+git remote add origin https://github.com/yappermoar-boop/tempo-mpp-tools.git
 git push -u origin main
 ```
 
